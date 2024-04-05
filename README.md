@@ -193,7 +193,7 @@ meanTemperature (T) = current average sst temp on a daily basis
 endemission = Math.exp(endrate * (death - meanTemperature)) - 1;
 
 
-gaiaemission = Math.exp(gaiarate * (meanTemperature)) - 1;		
+$`\gaiaemission = Math.exp(gaiarate * (meanTemperature)) - 1;`$	
 
 
 **SHORTHAND**   	
