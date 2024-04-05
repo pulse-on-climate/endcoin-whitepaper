@@ -1,11 +1,10 @@
-# endcoin-whitepaper
-
+![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
 # Table of contents
-1. [Introduction](#introduction)
-2. [Some paragraph](#paragraph1)
+1. [Introduction to Endcoin](#introduction)
+2. [A refresher on Sea Surface Temperature and its Importance to our climate.](#climate-change-refresh)
     1. [Sub paragraph](#subparagraph1)
 3. [Another paragraph](#paragraph2)
-![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
+
 # Introduction to Endcoin <a name="introduction"></a>
 Endcoin is a multifaceted entity with a lot of really big problems that the team here are trying to solve. From climate indiference in politics, to underpinning the entire DeFi market, to creating satellite receivers and putting them in space, to buying land and building bubbledomes, we've got something for everyone so buckle up! 
 
@@ -14,7 +13,7 @@ This whitepaper will hopefully provide a glimpse into our thought processes. We 
 >"We should not underestimate the obstacles. Some are real, such as the need to develop new technologies and to forge international institutions that will promote cooperation. Some obstacles are unnecessary and man-made, such as those posed by the financial interests of polluters or the ludicrous arguments of some of our politicians." 
 **- William D. Nordhaus**
 
-# A refresher on Sea Surface Temperature and its Importance to our climate.
+# A refresher on Sea Surface Temperature and its Importance to our climate. <a name="climate-change-refresh"></a>
 The ocean covers 71 percent of Earth's surface. Scientists record sea surface temperature (SST) to understand how the ocean communicates with Earth's atmosphere. SST provides fundamental information on the global climate system. 
 
 Some examples of SSTs role in our climate systems: 
@@ -69,4 +68,37 @@ If we can tune this programatically, then this opens the doors for finer control
 That was a bit of a tangent, but shows there is still innovation to be done in low cost satellite ground reception technology. 
 
 NOAA (National Oceanic and Atmospheric Administration) brought out [this guide](https://noaasis.noaa.gov/NOAASIS/pubs/Users_Guide-Building_Receive_Stations_March_2009.pdf) on how to create your own satellite receiver in 2009. 
-On page 9 (don't worry you don't have to read it all) they discuss the fact that ground station technology due to technological advancements have dropped from 100,000USD to only 10,000USD. We believe there is a space here for us to drop this entry price further. 
+On page 9 (don't worry you don't have to read it all) they discuss the fact that ground station technology due to technological advancements have dropped from 100,000USD to only 10,000USD. We believe there is a space here for us to drop this entry price further, without compromise on quality of data.
+
+# A foreword on data
+The above details our work on making more accessibly priced ground stations. Next we will be discussing the data we collect, how we validate it, and how we intend to use it. We have some pretty dry diagrams showing the software logic, but will try to keep it high level. 
+## What is a fragment
+
+## What is a Cell 
+
+# Data collection and processing workflow
+Our satellite receiver POC device will be able to listen to and receive data agnostically from all satellites. 
+We will now discuss the format of that data and how we shape it from satellite, to POC device, to averaged SST value underpinning the worlds economy. Ready?  
+// COOL PICTURE OF THE DATA PIPELINE // 
+![Data Pipeline](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
+
+We're going to dive into each of the steps within the diagram. Go and make a coffee, then read on.  
+
+## Hardware
+### Satellite data collection
+Modern satellites use a bunch of different instruments to collect information about our planet, and beam them back down to earth for scientists to consume and make sense of the world. For Sea Surface Temperature (Sea Surface Skin temperature actually) we use a super precise radiometer to capture this data. 
+
+### Satellite Data Types
+There are two common transmission types: 
+- HRPT (High Resolution Picture Transmission): HRPT is transmitting in L-band (1670-1710 MHz) range and can provide the resolution of 1km per pixel.
+- APT (Automatic Picture Transmission): APT is transmitting in VHF (137-138 MHz) range and can provide the lower resolution of 4km per pixel.
+
+A lot of our tests up to now have focused on APT data, its a bit easier to consume. 
+### Satellite data transmission
+
+
+## Receiver - Scheduler
+
+## Processing and signing
+
+## Fragment Creation
