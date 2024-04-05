@@ -83,7 +83,7 @@ We also define a cell as the same size of a fragment, so 0.25 degrees square at 
 Our satellite receiver POC device will be able to listen to and receive data agnostically from all satellites. 
 We will now discuss the format of that data and how we shape it from satellite, to POC device, to averaged SST value underpinning the worlds economy. Ready?  
 // COOL PICTURE OF THE DATA PIPELINE // 
-![Data Pipeline](https://pasteboard.co/UbCDwNnOE8dl.jpg)
+![Data Pipeline](https://gcdnb.pbrd.co/images/UbCDwNnOE8dl.jpg?o=1)
 
 We're going to dive into each of the steps within the diagram. Go and make a coffee, then read on.  
 
