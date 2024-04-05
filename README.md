@@ -206,6 +206,12 @@ This graphs as two exponentials, with Endcoin hitting exactly 0 when global aver
 
 ## Some reasoning
 Q: Why are the endrate and gaiarate different? 
+
+
 `A: The world can be damaged faster than it can be fixed, this adds that to the underpinning of the system`
+
+
 Q: Why is the crossover point neatly pegged at 21 degrees C? 
+
+
 `A: Last year (2023 at time of writing) the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.`
