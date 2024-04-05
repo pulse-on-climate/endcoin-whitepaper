@@ -72,15 +72,18 @@ On page 9 (don't worry you don't have to read it all) they discuss the fact that
 
 # A foreword on data
 The above details our work on making more accessibly priced ground stations. Next we will be discussing the data we collect, how we validate it, and how we intend to use it. We have some pretty dry diagrams showing the software logic, but will try to keep it high level. 
-## What is a fragment
-
-## What is a Cell 
-
+## What is a fragment?
+In this context, a fragment is a square of usable information that can be cross checked with other squares to provide consensus of data accuracy. 
+We gather data from a satellite, we reproject the image onto the earth to get accurate latitude and longitude values, we then randomly offset the grid to create fragments. This means if me and my neighbor both have satellite receivers, and collect the same image, we will both have a slightly different collection of fragments. We'll discuss this further shortly. 
+We are currently defining a fragment as a 0.25 degree square of latitude and longitude values, which covers around 40km of earths surface, but this is subject to change after more R&D cycles. 
+## What is a Cell? 
+A cell is the smallest amount of data that is verified from a collection of fragments. Fragments with their own random gridded offset are overlay on top of each other, consensus is made from the overlapping information provided from each. This gives us a confidence value for each of the pixels representing a temperature value in the data, which could be used as part of the sea surface model to weight the data appropriately. 
+We also define a cell as the same size of a fragment, so 0.25 degrees square at this moment. 
 # Data collection and processing workflow
 Our satellite receiver POC device will be able to listen to and receive data agnostically from all satellites. 
 We will now discuss the format of that data and how we shape it from satellite, to POC device, to averaged SST value underpinning the worlds economy. Ready?  
 // COOL PICTURE OF THE DATA PIPELINE // 
-![Data Pipeline](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
+![Data Pipeline](https://pasteboard.co/UbCDwNnOE8dl.jpg)
 
 We're going to dive into each of the steps within the diagram. Go and make a coffee, then read on.  
 
