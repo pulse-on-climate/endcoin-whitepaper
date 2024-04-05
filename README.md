@@ -203,3 +203,9 @@ $$ G = exp(g * T) - 1     $$
 This graphs as two exponentials, with Endcoin hitting exactly 0 when global average Sea Surface Temperature hits 35 degrees (Spoiler alert, we'll all be dead). When this happens, you see Gaiacoin spin wildly out of control, emitting around 293 billion into the economy each day temperatures are at 35 degrees... It'll still be the least of our worries though so DON'T PANIC. 
 
 ![The graph](https://gcdnb.pbrd.co/images/Y01a0sKy6CFo.png?o=1)
+
+## Some reasoning
+Q: Why are the endrate and gaiarate different? 
+`A: The world can be damaged faster than it can be fixed, this adds that to the underpinning of the system`
+Q: Why is the crossover point neatly pegged at 21 degrees C? 
+`A: Last year (2023 at time of writing) the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.`
