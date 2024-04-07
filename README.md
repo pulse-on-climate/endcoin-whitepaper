@@ -263,4 +263,4 @@ We talked about this internally more as a meme, but the reality when we actually
 
 Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddies lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore? 
 
-Endcoin will eventually position itself to create a REIT company in charge of buying land and developing bubbledomes for humanities enevitable end should we not heed scientific warnings of climate change. 
+Endcoin will eventually position itself to create a REIT company in charge of buying land and developing bubbledomes for humanities inevitable end should we not heed scientific warnings of climate change. 
