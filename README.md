@@ -214,7 +214,7 @@ Q: Why are the endrate and gaiarate different?
 Q: Why is the crossover point neatly pegged at 21 degrees C? 
 
 
-`A: Last year (2023 at time of writing) the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.`
+`A: In 2023 the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.`
 
 # Data point as a constant
 We have now successfully emitted tokens based on a real world data point which has climate impact. This begins to bridge the gap between financial markets and climate science for people not directly interested in ReFi opportunities. 
@@ -234,19 +234,33 @@ This is a realtime value that can be displayed to show the current state of the 
 ## Emission period
 Similar to index funds, we will update the SST value once a day. This gives us the following benefits which we think align with our mission: 
 
-1. Simplicity and Transparency: The daily emission of tokens based on SST values introduces a straightforward and transparent mechanism for token generation. Users and investors can easily understand the criteria for token issuance, which is based on measurable, external environmental data. This transparency can build trust in the system.
+1. **Simplicity and Transparency:** The daily emission of tokens based on SST values introduces a straightforward and transparent mechanism for token generation. Users and investors can easily understand the criteria for token issuance, which is based on measurable, external environmental data. This transparency can build trust in the system.
 
-2. Stabilization of Token Value: Emitting tokens once a day based on SST stabilizes the token's value by reducing its exposure to short-term speculative trading and market volatility. The value of the tokens becomes more closely tied to the actual changes in SST, rather than speculative market movements, which could make the tokens more attractive to long-term investors interested in environmental trends.
+2. **Stabilization of Token Value:** Emitting tokens once a day based on SST stabilizes the token's value by reducing its exposure to short-term speculative trading and market volatility. The value of the tokens becomes more closely tied to the actual changes in SST, rather than speculative market movements, which could make the tokens more attractive to long-term investors interested in environmental trends.
 
-3. Cost Efficiency: A system that operates on a set schedule (once daily) can optimize its computational and operational resources, potentially lowering the costs associated with token emission. These savings can be passed on to the community or reinvested into the project, for example, by enhancing the system's data accuracy or contributing to ocean conservation efforts.
+3. **Cost Efficiency:** A system that operates on a set schedule (once daily) can optimize its computational and operational resources, potentially lowering the costs associated with token emission. These savings can be passed on to the community or reinvested into the project, for example, by enhancing the system's data accuracy or contributing to ocean conservation efforts.
 
-4. Reduced Market Impact: By aggregating transactions and emissions to a once-daily event, the potential market impact of large trades or emissions is minimized. This can help maintain a more stable trading environment for the tokens, benefiting all participants by reducing price manipulation and extreme volatility.
+4. **Reduced Market Impact:** By aggregating transactions and emissions to a once-daily event, the potential market impact of large trades or emissions is minimized. This can help maintain a more stable trading environment for the tokens, benefiting all participants by reducing price manipulation and extreme volatility.
 
-5. Ease of Investment Decision Making: Investors can make more informed decisions without the pressure to react to minute-by-minute changes. Knowing that token emissions are tied to daily SST values allows investors to research and understand the environmental factors that might influence the token's value, leading to more strategic, informed investment decisions.
+5. **Ease of Investment Decision Making:** Investors can make more informed decisions without the pressure to react to minute-by-minute changes. Knowing that token emissions are tied to daily SST values allows investors to research and understand the environmental factors that might influence the token's value, leading to more strategic, informed investment decisions.
 
-6. Mitigates Timing Risk: The daily update mechanism mitigates risks associated with timing in the market. Investors focus on the longer-term trends in SST values and their implications for token emissions, rather than attempting to time the market for short-term gains.
+6. **Mitigates Timing Risk:** The daily update mechanism mitigates risks associated with timing in the market. Investors focus on the longer-term trends in SST values and their implications for token emissions, rather than attempting to time the market for short-term gains.
 
-7. Alignment with Environmental and Long-term Investment Strategies: By linking token emissions to SST values, the system naturally aligns with long-term environmental monitoring and conservation goals. It offers a novel way for investors to engage with climate-related issues, supporting a sustainable investment strategy that looks beyond immediate financial returns to consider broader environmental impacts.
+7. **Alignment with Environmental and Long-term Investment Strategies:** By linking token emissions to SST values, the system naturally aligns with long-term environmental monitoring and conservation goals. It offers a novel way for investors to engage with climate-related issues, supporting a sustainable investment strategy that looks beyond immediate financial returns to consider broader environmental impacts.
 
 
 For such a system to be effective, it's crucial to ensure the accuracy and integrity of the SST data used for token emission, incorporating multiple data sources and verification mechanisms to prevent manipulation and ensure reliability. Additionally, clear communication about how SST values translate into token emissions can further enhance transparency and trust in the system. Hopefully this whitepaper has shown that this is our ultimate goal. 
+
+# A word on bubbledomes 
+![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
+Bubbledomes are our version of future real estate that we foresee humanity sheltering in when the world begins to end. 
+Cities over the course of humanity have risen and fallen and entire civilisations have collapsed before, and usually there is an element of climate change that causes this. 
+We talked about this internally more as a meme, but the reality when we actually decided to dig in a bit more is quite alarming, sinister, and so ludicrous that it becomes reality. 
+
+[Here's an article from Business Insider showing 12 locations to go if the world goes to hell](https://www.businessinsider.com/places-to-go-during-apocalypse-2011-5)
+[Here's a link from the guardian talking about where Billionaires have began constructing bunkers](https://www.theguardian.com/news/2022/sep/04/super-rich-prepper-bunkers-apocalypse-survival-richest-rushkoff)
+[Here's a cool little slide deck from Forbes on the subject too](https://www.forbes.com/stories/billionaires/inside-billionaire-bunkers/)
+
+Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddies lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore? 
+
+Endcoin will eventually position itself to create a REIT company in charge of buying land and developing bubbledomes for humanities enevitable end should we not heed scientific warnings of climate change. 
