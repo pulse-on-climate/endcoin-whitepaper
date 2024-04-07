@@ -1,11 +1,15 @@
 ![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
 # Table of contents
 1. [Introduction to Endcoin](#introduction)
+    1.  [Introduction to Endcoin](#introduction) 
 2. [A refresher on Sea Surface Temperature and its Importance to our climate.](#climate-change-refresh)
     1. [Sub paragraph](#subparagraph1)
-3. [Another paragraph](#paragraph2)
+3. [Summary](#summary)
 
 # Introduction to Endcoin <a name="introduction"></a>
+Endcoin starts by building A DePin Satellite receiver network to produce a reading of sea surface temperatures. This acts as a price feed to drive existing DeFi systems towards positive climate impact: A standard rate for the global economy that is owned by the Earth.
+
+## Some more details: <a name="moredetails"></a>
 Endcoin is a multifaceted entity with a lot of really big problems that the team here are trying to solve. From climate indiference in politics, to underpinning the entire DeFi market, to creating satellite receivers and putting them in space, to buying land and building bubbledomes, we've got something for everyone so buckle up! 
 
 This whitepaper will hopefully provide a glimpse into our thought processes. We will follow the flow of data, from the Sea Surface temperature that underpins the whole system, through to new DeFi systems, and where we will all end up if the world continues to produce carbon at the current rate with zero tangible offset. 
@@ -27,7 +31,7 @@ PUBLISHED SEPTEMBER 6, 2023, https://www.climate.gov/news-features/understanding
 Hopefully this gets our point across that its a pretty big issue for everyone who exists, and everyone who will exist. 
 
 # Satellite Receiver Device
-"... but what if we built a decentrilsed antenna for downloading raw data from satellites?" he asks... 
+"... but what if we built a decentralized antenna for downloading raw data from satellites?" he asks... 
 So thats what we're doing. 
 We've built a small POC satellite receiver device, which was kit-bashed together over a weekend to successfully download some image data from a satellite passing overhead. 
 Hardware wise, this comprises of a few components: 
@@ -38,10 +42,10 @@ Hardware wise, this comprises of a few components:
 Its deceptively simple to get some data directly form a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
 ## Antenna
 **Dipole**
-We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked suprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.
+We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked surprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.
 
-**Quadrafilar**
-Our next port of call was to investigate the use of quadrifilar helix antennas. These are great because you don't need to point them at a satellite directly (so now we don't need to build a motorised base for our antenna! $$$) but the issue is they need to match in size the wavelength your actively trying to communicate on. 
+**Quadrifilar**
+Our next port of call was to investigate the use of Quadrifilar helix antennas. These are great because you don't need to point them at a satellite directly (so now we don't need to build a motorized base for our antenna! $$$) but the issue is they need to match in size the wavelength your actively trying to communicate on. 
 There are some beautiful examples of students working on collapsable quadrifilar helix antennas like [this one](https://news.stanford.edu/2024/01/18/new-portable-antenna-help-disasters/) from earlier in 2023. 
 Quadrifilar antenna feels like the best solution as you don't really need to worry about polarization as an end user, so installation will be a breeze, but the issue you might have is where the heck do you put it? 
 As an example, NOAA satellites send out cool pictures on the frequency 137.5Mhz, and from high school physics we remember that 𝜆=𝑣/𝑓. 
@@ -58,11 +62,11 @@ With microwave reception, you can basically decide to have your antenna be half 
 
 Low noise amplifiers are cool. You can buy a bunch of these off the shelf for under $50 and they work a treat in amplifying the signal of an incoming satellite image. One issue with current models however is the inability to tune them. 
 
-We want to talk to all the satellites to get as many data communication sessions as possible, so in order to do this effectively, we might need to amplify or boost a whole bunch of different freqeuncies. 
+We want to talk to all the satellites to get as many data communication sessions as possible, so in order to do this effectively, we might need to amplify or boost a whole bunch of different frequencies. 
 
-As part of my ongoaing deep dive, I found [this great paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471504/) from 2019 from Aayush Aneja and Xue Jun Li discussing the feasibility of a tunable low noise amplifier for Software Defined Radios (I know, JACKPOT!)
+As part of my ongoing deep dive, I found [this great paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471504/) from 2019 from Aayush Aneja and Xue Jun Li discussing the feasibility of a tunable low noise amplifier for Software Defined Radios (I know, JACKPOT!)
 
-If we can tune this programatically, then this opens the doors for finer control when a satellite passes by, can counteract doppler effects, and allows us to boost a single from any source frequency we desire. 
+If we can tune this programmatically, then this opens the doors for finer control when a satellite passes by, can counteract doppler effects, and allows us to boost a single from any source frequency we desire. 
 
 ## Still with me? 
 That was a bit of a tangent, but shows there is still innovation to be done in low cost satellite ground reception technology. 
@@ -74,7 +78,7 @@ On page 9 (don't worry you don't have to read it all) they discuss the fact that
 The above details our work on making more accessibly priced ground stations. Next we will be discussing the data we collect, how we validate it, and how we intend to use it. We have some pretty dry diagrams showing the software logic, but will try to keep it high level. 
 ## What is a fragment?
 In this context, a fragment is a square of usable information that can be cross checked with other squares to provide consensus of data accuracy. 
-We gather data from a satellite, we reproject the image onto the earth to get accurate latitude and longitude values, we then randomly offset the grid to create fragments. This means if me and my neighbor both have satellite receivers, and collect the same image, we will both have a slightly different collection of fragments. We'll discuss this further shortly. 
+We gather data from a satellite, we re-project the image onto the earth to get accurate latitude and longitude values, we then randomly offset the grid to create fragments. This means if me and my neighbor both have satellite receivers, and collect the same image, we will both have a slightly different collection of fragments. We'll discuss this further shortly. 
 We are currently defining a fragment as a 0.25 degree square of latitude and longitude values, which covers around 40km of earths surface, but this is subject to change after more R&D cycles. 
 ## What is a Cell? 
 A cell is the smallest amount of data that is verified from a collection of fragments. Fragments with their own random gridded offset are overlay on top of each other, consensus is made from the overlapping information provided from each. This gives us a confidence value for each of the pixels representing a temperature value in the data, which could be used as part of the sea surface model to weight the data appropriately. 
@@ -106,7 +110,7 @@ Once the satellite is in proximity, we will wake up, and start recording the dat
 Depending on the type of receiver antenna we go with, this could also be the app responsible for driving some motors to track the path of the passing satellite. 
 
 # Processing and signing
-In the processing and signing stage, we are effectly encrypting and verifying data at each individual step, outputting a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) which can be interrogated to establish the data integrity. 
+In the processing and signing stage, we are effectively encrypting and verifying data at each individual step, outputting a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) which can be interrogated to establish the data integrity. 
 With accurate device position, time data, and satellite positional data, we can improve our confidence that our device recorded data from the right source. This data is added to the overall signed data collection. 
 
 We decode audio file and sign all of the output. 
@@ -124,7 +128,7 @@ This image gives a wider overview, we'll work on more granular details of this a
 ![The overall Picture](https://gcdnb.pbrd.co/images/k359UcpBazlr.jpg?o=1)
 
 # A word or two on other sources
-This still requires fleshed out, but there is a plethora of data products, sensor networks etc. that already exist in centralized entities. We believe in science, and as such treat the scientific community with respect, admiration and trust, but we also agree that any centralized system can be swayed by opinion and personal gain. We aim to be another voice in that crowd, to help bolster scientific endevors and validate the hard work of so many brilliant minds in climate science and technology.
+This still requires fleshed out, but there is a plethora of data products, sensor networks etc. that already exist in centralized entities. We believe in science, and as such treat the scientific community with respect, admiration and trust, but we also agree that any centralized system can be swayed by opinion and personal gain. We aim to be another voice in that crowd, to help bolster scientific endeavors and validate the hard work of so many brilliant minds in climate science and technology.
 
 We need to work out how these systems are currently verified, and how we fit into that stack. We believe there is space. 
 # Storage and Network (The middle bit)
@@ -168,7 +172,7 @@ We do this once a day, and this value becomes instrumental in the emission funct
 (hell yeah on chain lets goooooooo)
 
 # AMM and token emission
-We currently have the Endcoin base program on Devnet. We submit through switchboard using a known centralised datapoint for now to alter the number of Endcoin and Gaiacoin that are emitted daily. 
+We currently have the Endcoin base program on Devnet. We submit through switchboard using a known centralized data point for now to alter the number of Endcoin and Gaiacoin that are emitted daily. 
 ## Who the f**hell is Gaia? 
 Gaia is the Earth. Coined by James Lovelock, Gaia is a proposed theory that the Earth is constantly self-regulating. This is a pretty nice article that explains his theories in more detail than I can be bothered regurgitating. 
 TLDR; GAIA = Earth. 
@@ -196,11 +200,7 @@ $$ G = exp(g * T) - 1     $$
  	
 
 
-
-
-
-
-This graphs as two exponentials, with Endcoin hitting exactly 0 when global average Sea Surface Temperature hits 35 degrees (Spoiler alert, we'll all be dead). When this happens, you see Gaiacoin spin wildly out of control, emitting around 293 billion into the economy each day temperatures are at 35 degrees... It'll still be the least of our worries though so DON'T PANIC. 
+This graphs as two exponential functions, with Endcoin hitting exactly 0 when global average Sea Surface Temperature hits 35 degrees (Spoiler alert, we'll all be dead). When this happens, you see Gaiacoin spin wildly out of control, emitting around 293 billion into the economy each day temperatures are at 35 degrees... It'll still be the least of our worries though so DON'T PANIC. 
 
 ![The graph](https://gcdnb.pbrd.co/images/Y01a0sKy6CFo.png?o=1)
 
@@ -263,4 +263,15 @@ We talked about this internally more as a meme, but the reality when we actually
 
 Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddies lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore? 
 
-Endcoin will eventually position itself to create a REIT company in charge of buying land and developing bubbledomes for humanities inevitable end should we not heed scientific warnings of climate change. 
+Endcoin will eventually position itself to create a REIT in charge of buying land and developing bubbledomes for humanities inevitable end should we not heed scientific warnings of climate change. 
+
+# Summary <a name="summary"></a>
+We've made it! We've gotten to the end of this whitepaper! Congrats if you read all the way through, go and touch some grass immediately. 
+
+What have we learned? 
+- Sea Surface Temperatures are important to climate science
+- Data collection from satellites is getting easier, and cheaper, and we are the ones to do it. 
+- Satellite and space are areas that are highly regulated and shared within the global community, making alignment of this data and blockchain technology simple to integrate with each other. 
+- There's a huge increase in focus and funding for space industries across the world, which Endcoin slots in to effectively to help shape the instruments that we will send to space. 
+- Tying financial infrastructure to climate change is a worthwhile cause, and gives sovereignty back to the earth through a single data point.  
+- Billionaires are buying bunkers for the end of the world, so you should too. Invest in Bubbledomes today. 
