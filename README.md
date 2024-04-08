@@ -1,11 +1,23 @@
-![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
+![Rad looking Endcoin Image](https://gcdnb.pbrd.co/images/MOyZaxX4iiKc.png?o=1)
 # Table of contents
 1. [Introduction to Endcoin](#introduction)
-    1.  [Introduction to Endcoin](#introduction) 
 2. [A refresher on Sea Surface Temperature and its Importance to our climate.](#climate-change-refresh)
-    1. [Sub paragraph](#subparagraph1)
-3. [Summary](#summary)
-
+3. [Satellite Receiver Device](#satellitereceiverdevice")
+4. [ A foreword on data ](#foreword-on-data)
+5. [Satellite data collection ](#datacollection)
+6. [Take a break](#another-break)
+7. [The bigger infrastructure picture](#big-picture)
+8. [A word or two on other sources](#other-sources)
+9. [Storage and Network](#storage-and-network)
+10. [Cell and Map Creation](#cell-and-map-creation)
+11. [OMG Are we on-chain yet??!?](#omg)
+12. [Switchboard](#switchboard)
+13. [AMM and token emission](#amm-and-token-emission)
+14. [Emission formula](#formula)
+15. [Data point as a constant](#datapoint)
+16. [Emission distribution](#emission-distribution)
+17. [A word on bubbledomes](#bubbledomes)
+18. [Summary](#summary)
 # Introduction to Endcoin <a name="introduction"></a>
 Endcoin starts by building A DePin Satellite receiver network to produce a reading of sea surface temperatures. This acts as a price feed to drive existing DeFi systems towards positive climate impact: A standard rate for the global economy that is owned by the Earth.
 
@@ -30,7 +42,7 @@ PUBLISHED SEPTEMBER 6, 2023, https://www.climate.gov/news-features/understanding
 
 Hopefully this gets our point across that its a pretty big issue for everyone who exists, and everyone who will exist. 
 
-# Satellite Receiver Device
+# Satellite Receiver Device <a name="satellitereceiverdevice"></a>
 "... but what if we built a decentralized antenna for downloading raw data from satellites?" he asks... 
 So thats what we're doing. 
 We've built a small POC satellite receiver device, which was kit-bashed together over a weekend to successfully download some image data from a satellite passing overhead. 
@@ -40,7 +52,8 @@ Hardware wise, this comprises of a few components:
 3. A low noise Amplifier (LNA) ((Also more on this below too!))
 
 Its deceptively simple to get some data directly from a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
-## Antenna
+## Antenna 
+
 **Dipole**
 We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked surprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.
 
@@ -55,7 +68,7 @@ This gives us the value of around 2.18 Meters (λ = 2.1803087854545 M if you're 
 **Parabolic Dishes**
 These are the boujee option, and probably required if we want to start downloading HRPT (High-Resolution Picture Transmission)
 
-### Half it, or half it again
+### Half it, or half it again 
 With microwave reception, you can basically decide to have your antenna be half the wavelength or a quarter of the wavelength in size, and you should still capture something, but you need to have a pretty high gain amplifier in the right frequency range. If we can solve the amplification stage to a good degree, we can make the antenna for this sort of collection around 50CM tall(ish) which is definitely more reasonable and I could probably get away with it being outside my apartment. 
 
 ## Low Noise Amplifiers (LNAs)
@@ -74,7 +87,7 @@ That was a bit of a tangent, but shows there is still innovation to be done in l
 NOAA (National Oceanic and Atmospheric Administration) brought out [this guide](https://noaasis.noaa.gov/NOAASIS/pubs/Users_Guide-Building_Receive_Stations_March_2009.pdf) on how to create your own satellite receiver in 2009. 
 On page 9 (don't worry you don't have to read it all) they discuss the fact that ground station technology due to technological advancements have dropped from 100,000USD to only 10,000USD. We believe there is a space here for us to drop this entry price further, without compromise on quality of data.
 
-# A foreword on data
+# A foreword on data <a name="foreword-on-data"></a>
 The above details our work on making more accessibly priced ground stations. Next we will be discussing the data we collect, how we validate it, and how we intend to use it. We have some pretty dry diagrams showing the software logic, but will try to keep it high level. 
 ## What is a fragment?
 In this context, a fragment is a square of usable information that can be cross checked with other squares to provide consensus of data accuracy. 
@@ -83,7 +96,7 @@ We are currently defining a fragment as a 0.25 degree square of latitude and lon
 ## What is a Cell? 
 A cell is the smallest amount of data that is verified from a collection of fragments. Fragments with their own random gridded offset are overlay on top of each other, consensus is made from the overlapping information provided from each. This gives us a confidence value for each of the pixels representing a temperature value in the data, which could be used as part of the sea surface model to weight the data appropriately. 
 We also define a cell as the same size of a fragment, so 0.25 degrees square at this moment. 
-# Data collection and processing workflow
+# A foreword on data <a name="foreword-on-data"></a>
 Our satellite receiver POC device will be able to listen to and receive data agnostically from all satellites. 
 We will now discuss the format of that data and how we shape it from satellite, to POC device, to averaged SST value underpinning the worlds economy. Ready?  
 
@@ -91,8 +104,7 @@ We will now discuss the format of that data and how we shape it from satellite, 
 
 We're going to dive into each of the steps within the diagram. Go and make a coffee, then read on.  
 
-# Hardware
-## Satellite data collection
+# Satellite data collection <a name="datacollection"></a>
 Modern satellites use a bunch of different instruments to collect information about our planet, and beam them back down to earth for scientists to consume and make sense of the world. For Sea Surface Temperature (Sea Surface Skin temperature actually) we use a super precise radiometer to capture this data. 
 
 ## Satellite Data Transmission
@@ -102,36 +114,42 @@ There are two common transmission types:
 
 A lot of our tests up to now have focused on APT data, its a bit easier to consume, but HRPT is definitely the future and where we want to get to for more accurate temperature values. 
 
-# Receiver - Scheduler
+## Receiver - Scheduler
 The scheduler is the main app running on our device. This will be responsible for getting positional data of the device (how accurate we need to be is still in the works). 
 The main purpose of this is actually to ensure we can run the device in a very low power state for as long as possible, and only spin up data recording services when a known satellite is actually close by. 
 Once the satellite is in proximity, we will wake up, and start recording the data being streamed from the satellite. Currently our tests have revolved around recording the data, waiting until all data has been collected, then we process the data. We may look to make this more of a continual stream but more R&D needed. 
 
 Depending on the type of receiver antenna we go with, this could also be the app responsible for driving some motors to track the path of the passing satellite. 
 
-# Processing and signing
+## Processing and signing
 In the processing and signing stage, we are effectively encrypting and verifying data at each individual step, outputting a [Merkle tree](https://en.wikipedia.org/wiki/Merkle_tree) which can be interrogated to establish the data integrity. 
 With accurate device position, time data, and satellite positional data, we can improve our confidence that our device recorded data from the right source. This data is added to the overall signed data collection. 
 
 We decode audio file and sign all of the output. 
-# Fragment Creation
+
+
+## Fragment Creation
 We next begin our fragment creation! We take our image file and the metadata decoded from the satellite, and re-project this onto Earth to get accurate latitude and longitude values. 
 We then grid the data as 0.25 degree square grid, with a random offset value generated by the hardware security module (HSM) in our device. As we discussed above, this means two people could get the same image from a satellite, but have a unique collection of fragments, which can all be added together to prove the resulting information is accurate. 
 As part of this step, we can also bin grids that are not relevant for example grids that totally cover a piece of land. 
 
 We sign each fragment with the random number generated, lat + lon values of the fragment and a reference to previous data to continue the merkle tree.
-# Take a break
-Phew, that was a lot. If you've finished your coffee, grab a water. We're gonna take a look at the wider scope now of where this data goes, and what it means for the world as a whole. 
-# The bigger infrastructure picture
+
+
+# Take a break<a name="another-break"></a>
+Phew, that was a lot. If you've finished your coffee, grab a water. We're gonna take a look at the wider scope now of where this data goes, and what it means for the world as a whole.
+
+
+# The bigger infrastructure picture<a name="big-picture"></a>
 This image gives a wider overview, we'll work on more granular details of this as we go, and will be reaching out to industry experts to help shape all of this. 
 
 ![The overall Picture](https://gcdnb.pbrd.co/images/k359UcpBazlr.jpg?o=1)
 
-# A word or two on other sources
+# A word or two on other sources<a name="other-sources"></a>
 This still requires fleshed out, but there is a plethora of data products, sensor networks etc. that already exist in centralized entities. We believe in science, and as such treat the scientific community with respect, admiration and trust, but we also agree that any centralized system can be swayed by opinion and personal gain. We aim to be another voice in that crowd, to help bolster scientific endeavors and validate the hard work of so many brilliant minds in climate science and technology.
 
 We need to work out how these systems are currently verified, and how we fit into that stack. We believe there is space. 
-# Storage and Network (The middle bit)
+# Storage and Network (The middle bit)<a name="storage-and-network"></a>
 ## Storage
 This is an area we have experience in from previous work, but we're still unsure on how exactly we will approach this for Endcoin. 
 We have written apps to interface with IPFS - but because we have a proof of all data, we could potentially just dump it all in an S3 bucket for the next step. 
@@ -141,7 +159,7 @@ Ultimately this step is fairly low risk due to the steps taken on proofs and dat
 ## Network
 We aim to have a flexible approach to networking and are fairly confident on our data integrity due to signing, so enabling our device to communicate over WiFi, Ethernet (With cool POE support) or 5G will be our focus. We have expressed an interest in working with the folks at Helium to be able to agnostically use their infrastructure and the noises they've made so far are really positive. 
 
-# Cell and Map Creation
+# Cell and Map Creation<a name="cell-and-map-creation"></a>
 ## Working theory
 ![Creation of a map](https://gcdnb.pbrd.co/images/q4VCCjPcqhe5.jpg?o=1)
 Bringing this all together with the above image. 
@@ -161,17 +179,17 @@ Our cell builder app with grab a bunch of fragments in a latitude and longitude 
 When building the entire map, we begin to stitch all of the cells together. This is almost a repeat of the fragments to cells program, but allows for extra scrutiny to ensure we have an accurate representation of temperature values for each cell. 
 I guess we can sort of look at this as rounds of consensuses.
 
-# OMG Are we on-chain yet??!?
+# OMG Are we on-chain yet??!?<a name="omg"></a>
 Yes! (almost)
 
-# Switchboard
+# Switchboard <a name="switchboard"></a>
 As part of recent work, we ended up discovering Switchboard, who have a really great community, and a fairly cheap oracle system, allowing us to check our data against those other sources we mentioned earlier. 
 
 We use switchboard to aggregate all of the data together and get a average SST value of the earth. 
 We do this once a day, and this value becomes instrumental in the emission function of our AMM. 
 (hell yeah on chain lets goooooooo)
 
-# AMM and token emission
+# AMM and token emission <a name="amm-and-token-emission"></a>
 We currently have the Endcoin base program on Devnet. We submit through switchboard using a known centralized data point for now to alter the number of Endcoin and Gaiacoin that are emitted daily. 
 ## Who the f**hell is Gaia? 
 Gaia is the Earth. Coined by James Lovelock, Gaia is a proposed theory that the Earth is constantly self-regulating. This is a pretty nice article that explains his theories in more detail than I can be bothered regurgitating. 
@@ -179,7 +197,7 @@ TLDR; GAIA = Earth.
 
 `Sadly, its much easier to create a desert than a forest` - James Lovelock
 
-# Emission formula
+# Emission formula <a name="formula"></a>
 Our current working formula is: 
 - death (d) = 35 (when its too hot to handle)
 - endrate (e) = 1.125
@@ -216,14 +234,14 @@ Q: Why is the crossover point neatly pegged at 21 degrees C?
 
 `A: In 2023 the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.`
 
-# Data point as a constant
+# Data point as a constant <a name="datapoint"></a>
 We have now successfully emitted tokens based on a real world data point which has climate impact. This begins to bridge the gap between financial markets and climate science for people not directly interested in ReFi opportunities. 
 
 
 If I'm just an oil barron degen, I can still invest in Endcoin and short the end of the world for unlimited gains, but this is now proveable, on chain, for the whole world to see. 
 
 
-# Emission distribution
+# Emission distribution <a name="emission-distribution"></a>
 Currently, we emit all tokens directly to a pool. For mainnet launch, we will also implement swap functionality and distribution to people running a satellite receiver or a cell/map builder app. This allows the tokens to enter the market, and begin to flow. The swap functionality will allow people to swap their Endcoin for Gaiacoin and vice versa, but will not allow people to stake in the pool. 
 
 This pool therefore gives us: 
@@ -251,7 +269,7 @@ Similar to index funds, we will update the SST value once a day. This gives us t
 
 For such a system to be effective, it's crucial to ensure the accuracy and integrity of the SST data used for token emission, incorporating multiple data sources and verification mechanisms to prevent manipulation and ensure reliability. Additionally, clear communication about how SST values translate into token emissions can further enhance transparency and trust in the system. Hopefully this whitepaper has shown that this is our ultimate goal. 
 
-# A word on bubbledomes 
+# A word on bubbledomes <a name="bubbledomes"></a>
 ![Rad looking Endcoin Image](https://cdn.imgpaste.net/2024/04/05/SxVuxp.png)
 Bubbledomes are our version of future real estate that we foresee humanity sheltering in when the world begins to end. 
 Cities over the course of humanity have risen and fallen and entire civilisations have collapsed before, and usually there is an element of climate change that causes this. 
