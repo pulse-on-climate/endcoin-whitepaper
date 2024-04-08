@@ -39,7 +39,7 @@ Hardware wise, this comprises of a few components:
 2. Antenna (more on these below)
 3. A low noise Amplifier (LNA) ((Also more on this below too!))
 
-Its deceptively simple to get some data directly form a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
+Its deceptively simple to get some data directly from a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
 ## Antenna
 **Dipole**
 We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked surprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.
@@ -66,7 +66,7 @@ We want to talk to all the satellites to get as many data communication sessions
 
 As part of my ongoing deep dive, I found [this great paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471504/) from 2019 from Aayush Aneja and Xue Jun Li discussing the feasibility of a tunable low noise amplifier for Software Defined Radios (I know, JACKPOT!)
 
-If we can tune this programmatically, then this opens the doors for finer control when a satellite passes by, can counteract doppler effects, and allows us to boost a single from any source frequency we desire. 
+If we can tune this programmatically, then this opens the doors for finer control when a satellite passes by, can counteract doppler effects, and allows us to boost a signal from any source frequency we desire. 
 
 ## Still with me? 
 That was a bit of a tangent, but shows there is still innovation to be done in low cost satellite ground reception technology. 
@@ -261,9 +261,9 @@ We talked about this internally more as a meme, but the reality when we actually
 [Here's a link from the guardian talking about where Billionaires have began constructing bunkers](https://www.theguardian.com/news/2022/sep/04/super-rich-prepper-bunkers-apocalypse-survival-richest-rushkoff)
 [Here's a cool little slide deck from Forbes on the subject too](https://www.forbes.com/stories/billionaires/inside-billionaire-bunkers/)
 
-Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddies lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore? 
+Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddy's lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore? 
 
-Endcoin will eventually position itself to create a REIT in charge of buying land and developing bubbledomes for humanities inevitable end should we not heed scientific warnings of climate change. 
+Endcoin will eventually position itself to create a REIT in charge of buying land and developing bubbledomes for humanity's inevitable end should we not heed scientific warnings of climate change. 
 
 # Summary <a name="summary"></a>
 We've made it! We've gotten to the end of this whitepaper! Congrats if you read all the way through, go and touch some grass immediately. 
