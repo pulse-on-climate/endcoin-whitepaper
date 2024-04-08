@@ -39,7 +39,7 @@ Hardware wise, this comprises of a few components:
 2. Antenna (more on these below)
 3. A low noise Amplifier (LNA) ((Also more on this below too!))
 
-Its deceptively simple to get some data directly fro__m a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
+Its deceptively simple to get some data directly from a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:
 ## Antenna
 **Dipole**
 We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked surprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.
