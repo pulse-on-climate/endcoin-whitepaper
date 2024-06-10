@@ -1,0 +1,444 @@
+<!DOCTYPE HTML>
+<html lang="en" class="light" dir="ltr">
+    <head>
+        <!-- Book generated using mdBook -->
+        <meta charset="UTF-8">
+        <title>Endcoin Whitepaper</title>
+        <meta name="robots" content="noindex">
+
+
+        <!-- Custom HTML head -->
+        
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="theme-color" content="#ffffff">
+
+        <link rel="icon" href="favicon.svg">
+        <link rel="shortcut icon" href="favicon.png">
+        <link rel="stylesheet" href="css/variables.css">
+        <link rel="stylesheet" href="css/general.css">
+        <link rel="stylesheet" href="css/chrome.css">
+        <link rel="stylesheet" href="css/print.css" media="print">
+
+        <!-- Fonts -->
+        <link rel="stylesheet" href="FontAwesome/css/font-awesome.css">
+        <link rel="stylesheet" href="fonts/fonts.css">
+
+        <!-- Highlight.js Stylesheets -->
+        <link rel="stylesheet" href="highlight.css">
+        <link rel="stylesheet" href="tomorrow-night.css">
+        <link rel="stylesheet" href="ayu-highlight.css">
+
+        <!-- Custom theme stylesheets -->
+
+        <!-- MathJax -->
+        <script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    </head>
+    <body class="sidebar-visible no-js">
+    <div id="body-container">
+        <!-- Provide site root to javascript -->
+        <script>
+            var path_to_root = "";
+            var default_theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "navy" : "light";
+        </script>
+
+        <!-- Work around some values being stored in localStorage wrapped in quotes -->
+        <script>
+            try {
+                var theme = localStorage.getItem('mdbook-theme');
+                var sidebar = localStorage.getItem('mdbook-sidebar');
+
+                if (theme.startsWith('"') && theme.endsWith('"')) {
+                    localStorage.setItem('mdbook-theme', theme.slice(1, theme.length - 1));
+                }
+
+                if (sidebar.startsWith('"') && sidebar.endsWith('"')) {
+                    localStorage.setItem('mdbook-sidebar', sidebar.slice(1, sidebar.length - 1));
+                }
+            } catch (e) { }
+        </script>
+
+        <!-- Set the theme before any content is loaded, prevents flash -->
+        <script>
+            var theme;
+            try { theme = localStorage.getItem('mdbook-theme'); } catch(e) { }
+            if (theme === null || theme === undefined) { theme = default_theme; }
+            var html = document.querySelector('html');
+            html.classList.remove('light')
+            html.classList.add(theme);
+            var body = document.querySelector('body');
+            body.classList.remove('no-js')
+            body.classList.add('js');
+        </script>
+
+        <input type="checkbox" id="sidebar-toggle-anchor" class="hidden">
+
+        <!-- Hide / unhide sidebar before it is displayed -->
+        <script>
+            var body = document.querySelector('body');
+            var sidebar = null;
+            var sidebar_toggle = document.getElementById("sidebar-toggle-anchor");
+            if (document.body.clientWidth >= 1080) {
+                try { sidebar = localStorage.getItem('mdbook-sidebar'); } catch(e) { }
+                sidebar = sidebar || 'visible';
+            } else {
+                sidebar = 'hidden';
+            }
+            sidebar_toggle.checked = sidebar === 'visible';
+            body.classList.remove('sidebar-visible');
+            body.classList.add("sidebar-" + sidebar);
+        </script>
+
+        <nav id="sidebar" class="sidebar" aria-label="Table of contents">
+            <div class="sidebar-scrollbox">
+                <ol class="chapter"><li class="chapter-item expanded affix "><li class="part-title">ENDCOIN</li><li class="chapter-item expanded "><a href="introduction.html"><strong aria-hidden="true">1.</strong> Introduction</a></li><li class="chapter-item expanded affix "><li class="part-title">Sea Surface Temperature data</li><li class="chapter-item expanded "><a href="refresher_on_SST.html"><strong aria-hidden="true">2.</strong> A refresher on SST</a></li><li class="chapter-item expanded "><a href="foreword_on_data.html"><strong aria-hidden="true">3.</strong>  A foreword on data </a></li><li class="chapter-item expanded affix "><li class="part-title">Hardware</li><li class="chapter-item expanded "><a href="hardware/satellite_receiver.html"><strong aria-hidden="true">4.</strong> Our Satellite Receiver Device</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="hardware/antenna.html"><strong aria-hidden="true">4.1.</strong> Antenna</a></li><li class="chapter-item expanded "><a href="hardware/low_noise_amplifiers.html"><strong aria-hidden="true">4.2.</strong> Low Noise Amplifiers</a></li></ol></li><li class="chapter-item expanded "><li class="part-title">Infrastructure</li><li class="chapter-item expanded "><a href="infrastructure/data_collection.html"><strong aria-hidden="true">5.</strong> Satellite data collection </a></li><li><ol class="section"><li class="chapter-item expanded "><a href="infrastructure/satellite_data_transmission.html"><strong aria-hidden="true">5.1.</strong> Transmission</a></li><li class="chapter-item expanded "><a href="infrastructure/receiver_scheduler.html"><strong aria-hidden="true">5.2.</strong> Receiver Scheduler</a></li><li class="chapter-item expanded "><a href="infrastructure/processing_and_signing.html"><strong aria-hidden="true">5.3.</strong> Processing and Signing</a></li></ol></li><li class="chapter-item expanded "><a href="infrastructure/big_picture.html"><strong aria-hidden="true">6.</strong> The bigger infrastructure picture</a></li><li class="chapter-item expanded "><a href="infrastructure/other_sources.html"><strong aria-hidden="true">7.</strong> A word or two on other sources</a></li><li class="chapter-item expanded "><a href="infrastructure/what_is_a_fragment.html"><strong aria-hidden="true">8.</strong> What is a fragment?</a></li><li class="chapter-item expanded "><a href="infrastructure/storage_and_network.html"><strong aria-hidden="true">9.</strong> Storage and Network</a></li><li class="chapter-item expanded "><a href="infrastructure/cell_and_map_creation.html"><strong aria-hidden="true">10.</strong> Cell and Map Creation</a></li><li class="chapter-item expanded affix "><li class="part-title">On-Chain</li><li class="chapter-item expanded "><a href="onchain/switchboard_oracle.html"><strong aria-hidden="true">11.</strong> Switchboard</a></li><li class="chapter-item expanded "><a href="onchain/amm_token_emission.html"><strong aria-hidden="true">12.</strong> AMM and token emission</a></li><li class="chapter-item expanded "><a href="onchain/emission_formula.html"><strong aria-hidden="true">13.</strong> Emission formula</a></li><li class="chapter-item expanded "><a href="onchain/datapoint.html"><strong aria-hidden="true">14.</strong> Data point as a constant</a></li><li class="chapter-item expanded "><a href="onchain/emission_distribution.html"><strong aria-hidden="true">15.</strong> Emission distribution</a></li><li class="chapter-item expanded affix "><li class="part-title">Bubble Domes</li><li class="chapter-item expanded "><a href="bubbledomes/bubbledomes.html"><strong aria-hidden="true">16.</strong> A word on bubbledomes</a></li><li class="chapter-item expanded affix "><li class="part-title">Finale</li><li class="chapter-item expanded "><a href="finale.html"><strong aria-hidden="true">17.</strong> Finale</a></li></ol>
+            </div>
+            <div id="sidebar-resize-handle" class="sidebar-resize-handle">
+                <div class="sidebar-resize-indicator"></div>
+            </div>
+        </nav>
+
+        <!-- Track and set sidebar scroll position -->
+        <script>
+            var sidebarScrollbox = document.querySelector('#sidebar .sidebar-scrollbox');
+            sidebarScrollbox.addEventListener('click', function(e) {
+                if (e.target.tagName === 'A') {
+                    sessionStorage.setItem('sidebar-scroll', sidebarScrollbox.scrollTop);
+                }
+            }, { passive: true });
+            var sidebarScrollTop = sessionStorage.getItem('sidebar-scroll');
+            sessionStorage.removeItem('sidebar-scroll');
+            if (sidebarScrollTop) {
+                // preserve sidebar scroll position when navigating via links within sidebar
+                sidebarScrollbox.scrollTop = sidebarScrollTop;
+            } else {
+                // scroll sidebar to current active section when navigating via "next/previous chapter" buttons
+                var activeSection = document.querySelector('#sidebar .active');
+                if (activeSection) {
+                    activeSection.scrollIntoView({ block: 'center' });
+                }
+            }
+        </script>
+
+        <div id="page-wrapper" class="page-wrapper">
+
+            <div class="page">
+                                <div id="menu-bar-hover-placeholder"></div>
+                <div id="menu-bar" class="menu-bar sticky">
+                    <div class="left-buttons">
+                        <label id="sidebar-toggle" class="icon-button" for="sidebar-toggle-anchor" title="Toggle Table of Contents" aria-label="Toggle Table of Contents" aria-controls="sidebar">
+                            <i class="fa fa-bars"></i>
+                        </label>
+                        <button id="theme-toggle" class="icon-button" type="button" title="Change theme" aria-label="Change theme" aria-haspopup="true" aria-expanded="false" aria-controls="theme-list">
+                            <i class="fa fa-paint-brush"></i>
+                        </button>
+                        <ul id="theme-list" class="theme-popup" aria-label="Themes" role="menu">
+                            <li role="none"><button role="menuitem" class="theme" id="light">Light</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="rust">Rust</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="coal">Coal</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="navy">Navy</button></li>
+                            <li role="none"><button role="menuitem" class="theme" id="ayu">Ayu</button></li>
+                        </ul>
+                        <button id="search-toggle" class="icon-button" type="button" title="Search. (Shortkey: s)" aria-label="Toggle Searchbar" aria-expanded="false" aria-keyshortcuts="S" aria-controls="searchbar">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <h1 class="menu-title">Endcoin Whitepaper</h1>
+
+                    <div class="right-buttons">
+                        <a href="print.html" title="Print this book" aria-label="Print this book">
+                            <i id="print-button" class="fa fa-print"></i>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div id="search-wrapper" class="hidden">
+                    <form id="searchbar-outer" class="searchbar-outer">
+                        <input type="search" id="searchbar" name="searchbar" placeholder="Search this book ..." aria-controls="searchresults-outer" aria-describedby="searchresults-header">
+                    </form>
+                    <div id="searchresults-outer" class="searchresults-outer hidden">
+                        <div id="searchresults-header" class="searchresults-header"></div>
+                        <ul id="searchresults">
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Apply ARIA attributes after the sidebar and the sidebar toggle button are added to the DOM -->
+                <script>
+                    document.getElementById('sidebar-toggle').setAttribute('aria-expanded', sidebar === 'visible');
+                    document.getElementById('sidebar').setAttribute('aria-hidden', sidebar !== 'visible');
+                    Array.from(document.querySelectorAll('#sidebar a')).forEach(function(link) {
+                        link.setAttribute('tabIndex', sidebar === 'visible' ? 0 : -1);
+                    });
+                </script>
+
+                <div id="content" class="content">
+                    <main>
+                        <h1 id="introduction-to-endcoin"><a class="header" href="#introduction-to-endcoin">Introduction to Endcoin</a></h1>
+<p>Endcoin starts by building A DePin Satellite receiver network to produce a reading of sea surface temperatures. This acts as a price feed to drive existing DeFi systems towards positive climate impact: A standard rate for the global economy that is owned by the Earth.</p>
+<p>Endcoin is a multifaceted entity with a lot of really big problems that the team here are trying to solve. From climate indiference in politics, to underpinning the entire DeFi market, to creating satellite receivers and putting them in space, to buying land and building bubbledomes, we've got something for everyone so buckle up!</p>
+<p>This whitepaper will hopefully provide a glimpse into our thought processes. We will follow the flow of data, from the Sea Surface temperature that underpins the whole system, through to new DeFi systems, and where we will all end up if the world continues to produce carbon at the current rate with zero tangible offset.</p>
+<blockquote>
+<p>"We should not underestimate the obstacles. Some are real, such as the need to develop new technologies and to forge international institutions that will promote cooperation. Some obstacles are unnecessary and man-made, such as those posed by the financial interests of polluters or the ludicrous arguments of some of our politicians."
+<strong>- William D. Nordhaus</strong></p>
+</blockquote>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-refresher-on-sea-surface-temperature"><a class="header" href="#a-refresher-on-sea-surface-temperature">A refresher on Sea Surface Temperature <a name="climate-change-refresh"></a></a></h1>
+<p>The ocean covers 71 percent of Earth's surface. Scientists record sea surface temperature (SST) to understand how the ocean communicates with Earth's atmosphere. SST provides fundamental information on the global climate system.</p>
+<p>Some examples of SSTs role in our climate systems:</p>
+<ol>
+<li><strong>Heat Exchange:</strong> SST is pivotal for the exchange of heat between the ocean and the atmosphere. Heat absorbed by the ocean is moved from one place to another, but it doesn’t disappear. The heat energy eventually re-enters the rest of the Earth system by melting ice shelves, evaporating water, or directly reheating the atmosphere. Thus, heat energy in the ocean can warm the planet for decades after it was absorbed.</li>
+</ol>
+<p><a href="https://www.climate.gov/news-features/understanding-climate/climate-change-ocean-heat-content">"Climate Change: Ocean Heat Content" BY Rebecca Lindsey and Luann Dahlman</a></p>
+<ol start="2">
+<li><strong>Atmospheric Circulation:</strong> SSTs help to drive atmospheric circulation patterns, which determine weather conditions globally. 'ENSO' stands for 'El Niño Southern Oscillation'. The name 'ENSO' is a reminder that close interaction between the atmosphere and ocean is an essential part of the process. While the global climate system contains many processes, ENSO is by far the dominant feature of climate variability on inter-annual timescales.</li>
+</ol>
+<p><a href="https://www.metoffice.gov.uk/weather/learn-about/weather/atmosphere/global-circulation-patterns">"Atmospheric Circulation," Met Office</a></p>
+<ol start="3">
+<li><strong>Climate Projections:</strong> SST data are essential for calibrating and validating climate models, ensuring their accuracy in representing current climate systems and projecting future conditions. These projections are crucial for understanding potential changes in climate, including global warming and extreme weather events. An example can be found in the following link, showing an increase of 1.28°C in and around Japan, which is higher than the global average of 0.61°C.</li>
+</ol>
+<p><a href="https://www.data.jma.go.jp/gmd/kaiyou/english/long_term_sst_japan/sea_surface_temperature_around_japan.html">Sea surface Temperature Around Japan, Japanese Meterological Agency</a></p>
+<p>Hopefully this gets our point across that its a pretty big issue for everyone who exists, and everyone who will exist.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-foreword-on-data"><a class="header" href="#a-foreword-on-data">A foreword on data</a></h1>
+<p>Our satellite receiver POC device will be able to listen to and receive data agnostically from all satellites.
+We will now discuss the format of that data and how we shape it from satellite, to POC device, to averaged SST value underpinning the worlds economy.</p>
+<p><img src="https://gcdnb.pbrd.co/images/UbCDwNnOE8dl.jpg?o=1" alt="Data Pipeline" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="satellite-receiver-device-micro-ground-station"><a class="header" href="#satellite-receiver-device-micro-ground-station">Satellite Receiver Device (Micro Ground Station)</a></h1>
+<blockquote>
+<p>"... but what if we built a decentralized antenna for downloading raw data from satellites?" he asks...</p>
+</blockquote>
+<h2 id="so-thats-what-were-doing"><a class="header" href="#so-thats-what-were-doing">So thats what we're doing:</a></h2>
+<p>We've built a small POC satellite receiver, which was kit-bashed together to successfully download some image data from a satellite passing overhead.
+Hardware wise, this comprises of a few components:</p>
+<ol>
+<li>SDR (Software Defined Radio)</li>
+<li>Antenna</li>
+<li>A low noise Amplifier (LNA)</li>
+<li>Hardware Security Module (HSM)</li>
+</ol>
+<p>Its deceptively simple to get some data directly from a satellite carrying Sea Surface Temperature data collection equipment, but getting the best quality images every time requires a few key areas of improvement:</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="antenna"><a class="header" href="#antenna">Antenna</a></h1>
+<h2 id="dipole"><a class="header" href="#dipole">Dipole</a></h2>
+<p>We initially tested with a simple dipole antenna, the one your grandparents used to have on top of their TV with the big cathode ray tube screen. This worked surprisingly well, and I managed to get a half-scrambled image of the earth from inside my apartment surrounded by big in-the-way buildings.</p>
+<h2 id="quadrifilar"><a class="header" href="#quadrifilar">Quadrifilar</a></h2>
+<p>Our next port of call was to investigate the use of Quadrifilar helix antennas. These are great because you don't need to point them at a satellite directly (so now we don't need to build a motorized base for our antenna! $$$) but the issue is they need to match in size the wavelength your actively trying to communicate on.
+There are some beautiful examples of students working on collapsable quadrifilar helix antennas like <a href="https://news.stanford.edu/2024/01/18/new-portable-antenna-help-disasters/">this one</a> from earlier in 2023.
+Quadrifilar antenna feels like the best solution as you don't really need to worry about polarization as an end user, so installation will be a breeze, but the issue you might have is where the heck do you put it?
+As an example, NOAA satellites send out cool pictures on the frequency 137.5Mhz, and from high school physics we remember that:</p>
+<blockquote>
+<p>𝜆=𝑣/𝑓</p>
+</blockquote>
+<p>The velocity(𝑣) of microwaves is around the speed of light, so (in m/s)</p>
+<blockquote>
+<p>𝑣=299,792,458, and 𝑓=137.5Mhz.
+This gives us the value of around 2.18 Meters (λ = 2.1803087854545 M if you're calculating along)</p>
+</blockquote>
+<p>So this is how long we make our quadrifilar helix antenna. Easy! But I probably couldn't stick one of these conspicuously outside of my apartment without anyone knowing. Theres a way around that though!</p>
+<h3 id="half-it-or-half-it-again"><a class="header" href="#half-it-or-half-it-again">Half it, or half it again</a></h3>
+<p>With microwave reception, you can basically decide to have your antenna be half the wavelength or a quarter of the wavelength in size, and you should still capture something, but you need to have a pretty high gain amplifier in the right frequency range. If we can solve the amplification stage to a good degree, we can make the antenna for this sort of collection around 50CM tall(ish) which is definitely more reasonable and I could probably get away with it being outside my apartment.</p>
+<h2 id="parabolic-dishes"><a class="header" href="#parabolic-dishes">Parabolic Dishes</a></h2>
+<p>These are the boujee option, and probably required if we want to start downloading HRPT (High-Resolution Picture Transmission)</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="low-noise-amplifiers"><a class="header" href="#low-noise-amplifiers">Low Noise Amplifiers</a></h1>
+<p>Low noise amplifiers are cool. You can buy a bunch of these off the shelf for under $50 and they work a treat in amplifying the signal of an incoming satellite image. One issue with current models however is the inability to tune them to work with multiple specific frequencies.</p>
+<p>We want to talk to <strong>all</strong> the satellites to get as many data communication sessions as possible, so in order to do this effectively, we might need to amplify or boost a whole bunch of different frequencies.</p>
+<p>As part of our ongoing deep dive, we found <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6471504/">this great paper</a> from 2019 from Aayush Aneja and Xue Jun Li discussing the feasibility of a tunable low noise amplifier for Software Defined Radios (I know, JACKPOT!)</p>
+<p>If we can tune this programmatically, then this opens the doors for finer control when a satellite passes by, can counteract doppler effects, and allows us to boost a signal from any source frequency we desire.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="satellite-data-collection"><a class="header" href="#satellite-data-collection">Satellite data collection</a></h1>
+<p>Modern satellites use a bunch of different instruments to collect information about our planet, and beam them back down to earth for scientists to consume and make sense of the world. For Sea Surface Temperature (Sea Surface Skin temperature actually) we use a super precise radiometer to capture this data.</p>
+<h2 id="satellite-data-transmission"><a class="header" href="#satellite-data-transmission">Satellite Data Transmission</a></h2>
+<p>There are two common transmission types:</p>
+<ul>
+<li>HRPT (High Resolution Picture Transmission): HRPT is transmitting in L-band (1670-1710 MHz) range and can provide the resolution of 1km per pixel.</li>
+<li>APT (Automatic Picture Transmission): APT is transmitting in VHF (137-138 MHz) range and can provide the lower resolution of 4km per pixel.</li>
+</ul>
+<p>A lot of our tests up to now have focused on APT data, its a bit easier to consume, but HRPT is definitely the future and where we want to get to for more accurate temperature values.</p>
+<h2 id="receiver---scheduler"><a class="header" href="#receiver---scheduler">Receiver - Scheduler</a></h2>
+<p>The scheduler is the main app running on our device. This will be responsible for getting positional data of the device (how accurate we need to be is still in the works).
+The main purpose of this is actually to ensure we can run the device in a very low power state for as long as possible, and only spin up data recording services when a known satellite is actually close by.
+Once the satellite is in proximity, we will wake up, and start recording the data being streamed from the satellite. Currently our tests have revolved around recording the data, waiting until all data has been collected, then we process the data. We may look to make this more of a continual stream but more R&amp;D needed.</p>
+<p>Depending on the type of receiver antenna we go with, this could also be the app responsible for driving some motors to track the path of the passing satellite.</p>
+<h2 id="processing-and-signing"><a class="header" href="#processing-and-signing">Processing and signing</a></h2>
+<p>In the processing and signing stage, we are effectively encrypting and verifying data at each individual step, outputting a <a href="https://en.wikipedia.org/wiki/Merkle_tree">Merkle tree</a> which can be interrogated to establish the data integrity.
+With accurate device position, time data, and satellite positional data, we can improve our confidence that our device recorded data from the right source. This data is added to the overall signed data collection.</p>
+<p>We decode audio file and sign all of the output.</p>
+<h2 id="fragment-creation"><a class="header" href="#fragment-creation">Fragment Creation</a></h2>
+<p>We next begin our fragment creation! We take our image file and the metadata decoded from the satellite, and re-project this onto Earth to get accurate latitude and longitude values.
+We then grid the data as 0.25 degree square grid, with a random offset value generated by the hardware security module (HSM) in our device. As we discussed above, this means two people could get the same image from a satellite, but have a unique collection of fragments, which can all be added together to prove the resulting information is accurate.
+As part of this step, we can also bin grids that are not relevant for example grids that totally cover a piece of land.</p>
+<p>We sign each fragment with the random number generated, lat + lon values of the fragment and a reference to previous data to continue the merkle tree.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="transmission"><a class="header" href="#transmission">Transmission</a></h1>
+<p>There are two common transmission types:</p>
+<ul>
+<li>HRPT (High Resolution Picture Transmission): HRPT is transmitting in L-band (1670-1710 MHz) range and can provide the resolution of 1km per pixel.</li>
+<li>APT (Automatic Picture Transmission): APT is transmitting in VHF (137-138 MHz) range and can provide the lower resolution of 4km per pixel.</li>
+</ul>
+<p>A lot of our tests up to now have focused on APT data, its a bit easier to consume, but HRPT is definitely the future and where we want to get to for more accurate temperature values.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="receiver-scheduler"><a class="header" href="#receiver-scheduler">Receiver Scheduler</a></h1>
+<p>The scheduler is the main app running on our device. This will be responsible for getting positional data of the device (how accurate we need to be is still in the works).
+The main purpose of this is actually to ensure we can run the device in a very low power state for as long as possible, and only spin up data recording services when a known satellite is actually close by.
+Once the satellite is in proximity, we will wake up, and start recording the data being streamed from the satellite. Currently our tests have revolved around recording the data, waiting until all data has been collected, then we process the data. We may look to make this more of a continual stream but more R&amp;D needed.</p>
+<p>Depending on the type of receiver antenna we go with, this could also be the app responsible for driving some motors to track the path of the passing satellite.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="processing-and-signing-1"><a class="header" href="#processing-and-signing-1">Processing and Signing</a></h1>
+<p>In the processing and signing stage, we are effectively encrypting and verifying data at each individual step, outputting a <a href="https://en.wikipedia.org/wiki/Merkle_tree">Merkle tree</a> which can be interrogated to establish the data integrity.
+With accurate device position, time data, and satellite positional data, we can improve our confidence that our device recorded data from the right source. This data is added to the overall signed data collection.</p>
+<p>We decode audio file and sign all of the output.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="the-bigger-infrastructure-picture"><a class="header" href="#the-bigger-infrastructure-picture">The bigger infrastructure picture</a></h1>
+<p>This image gives a wider overview, we'll work on more granular details of this as we go, and will be reaching out to industry experts to help shape all of this.</p>
+<p><img src="https://gcdnb.pbrd.co/images/k359UcpBazlr.jpg?o=1" alt="The overall Picture" /></p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="other-sources"><a class="header" href="#other-sources">Other sources</a></h1>
+<p>This still requires fleshed out, but there is a plethora of data products, sensor networks etc. that already exist in centralized entities. We believe in science, and as such treat the scientific community with respect, admiration and trust, but we also agree that any centralized system can be swayed by opinion and personal gain. We aim to be another voice in that crowd, to help bolster scientific endeavors and validate the hard work of so many brilliant minds in climate science and technology.</p>
+<p>We need to work out how these systems are currently verified, and how we fit into that stack. We believe there is space.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="what-is-a-fragment"><a class="header" href="#what-is-a-fragment">What is a fragment?</a></h1>
+<p>In this context, a fragment is a square of usable information that can be cross checked with other squares to provide consensus of data accuracy.</p>
+<p>We gather data from a satellite, we re-project the image onto the earth to get accurate latitude and longitude values, we then randomly offset the grid to create fragments. This means if me and my neighbor both have satellite receivers, and collect the same image, we will both have a slightly different collection of fragments. We'll discuss this further shortly.</p>
+<p>We are currently defining a fragment as a 0.25 degree square of latitude and longitude values, which covers around 40km of earths surface, but this is subject to change after more R&amp;D cycles.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="storage-and-network"><a class="header" href="#storage-and-network">Storage and Network</a></h1>
+<h2 id="storage"><a class="header" href="#storage">Storage</a></h2>
+<p>This is an area we have experience in from previous work, but we're still unsure on how exactly we will approach this for Endcoin.
+We have written apps to interface with IPFS - but because we have a proof of all data, we could potentially just dump it all in an S3 bucket for the next step.</p>
+<p>Ultimately this step is fairly low risk due to the steps taken on proofs and data verification throughout the process, so we will likely be driven by cost and ease of access in this section. If you have suggestions, please let us know.</p>
+<h2 id="network"><a class="header" href="#network">Network</a></h2>
+<p>We aim to have a flexible approach to networking and are fairly confident on our data integrity due to signing, so enabling our device to communicate over WiFi, Ethernet (With cool POE support) or 5G will be our focus. We have expressed an interest in working with the folks at Helium to be able to agnostically use their infrastructure and the noises they've made so far are really positive.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="cell-and-map-creation"><a class="header" href="#cell-and-map-creation">Cell and Map Creation</a></h1>
+<h2 id="working-theory"><a class="header" href="#working-theory">Working theory</a></h2>
+<p><img src="https://gcdnb.pbrd.co/images/q4VCCjPcqhe5.jpg?o=1" alt="Creation of a map" />
+Bringing this all together with the above image.</p>
+<ul>
+<li>We made a bunch of fragments earlier with our cool POC receiver.</li>
+<li>We stored all of them in a storage medium.</li>
+<li>We make some cells</li>
+<li>We stitch those cells together</li>
+<li>We make a map</li>
+<li>We have completed our dataset for SST for 1x day.</li>
+</ul>
+<h2 id="cell-creation"><a class="header" href="#cell-creation">Cell creation</a></h2>
+<p>The first step here is cell creation.
+We will develop the app for this, and it will exist independently of running a satellite receiver, so it gives people who aren't ready to purchase a hardware device, or who live underground already and don't have the luxury of direct line of sight to a satellite the chance to also contribute to verifying the data, and farm tokens in preparation for the end of the world (more on that coming up!).
+Our cell builder app with grab a bunch of fragments in a latitude and longitude range, and will verify them against each other. As there will be a large overlay in the center of the cell, we will be very confident about the value of this. In the outer edges of the cell we are slightly less confident.</p>
+<h2 id="map-building"><a class="header" href="#map-building">Map building</a></h2>
+<p>When building the entire map, we begin to stitch all of the cells together. This is almost a repeat of the fragments to cells program, but allows for extra scrutiny to ensure we have an accurate representation of temperature values for each cell.
+I guess we can sort of look at this as rounds of consensuses.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="switchboard"><a class="header" href="#switchboard">Switchboard</a></h1>
+<p>As part of recent work, we ended up discovering Switchboard, who have a really great community, and a fairly cheap oracle system, allowing us to check our data against those other sources we mentioned earlier.</p>
+<p>We use switchboard to aggregate all of the data together and get a average SST value of the earth.
+We do this once a day, and this value becomes instrumental in the emission function of our AMM.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="amm-and-token-emission"><a class="header" href="#amm-and-token-emission">AMM and token emission</a></h1>
+<p>We currently have the Endcoin base program on Devnet. We submit through switchboard using a known centralized data point for now to alter the number of Endcoin and Gaiacoin that are emitted daily.</p>
+<h2 id="who-is-gaia"><a class="header" href="#who-is-gaia">Who is Gaia?</a></h2>
+<p>Gaia is the Earth. Coined by James Lovelock, Gaia is a proposed theory that the Earth is constantly self-regulating.</p>
+<p><code>Sadly, its much easier to create a desert than a forest</code> - James Lovelock</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="emission-formula"><a class="header" href="#emission-formula">Emission formula</a></h1>
+<p>Our current working formula is:</p>
+<ul>
+<li>death (d) = 35 (when its too hot to handle)</li>
+<li>endrate (e) = 1.125</li>
+<li>gaiarate (g) = 0.75</li>
+<li>meanTemperature (T) = current average sst temp on a daily basis</li>
+</ul>
+<h4 id="endcoin"><a class="header" href="#endcoin">Endcoin</a></h4>
+<p>\[ E = exp(e* (d - T)) -1 \]</p>
+<h4 id="gaiacoin"><a class="header" href="#gaiacoin">Gaiacoin</a></h4>
+<p>\[ G = exp(g * T) - 1 \]</p>
+<p>This graphs as two exponential functions, with Endcoin hitting exactly 0 when global average Sea Surface Temperature hits 35 degrees (Spoiler alert, we'll all be dead). When this happens, you see Gaiacoin spin wildly out of control, emitting around 293 billion into the economy each day temperatures are at 35 degrees... It'll still be the least of our worries though so DON'T PANIC.</p>
+<p><img src="https://gcdnb.pbrd.co/images/Y01a0sKy6CFo.png?o=1" alt="The graph" /></p>
+<h2 id="some-reasoning"><a class="header" href="#some-reasoning">Some reasoning</a></h2>
+<p>Q: Why are the endrate and gaiarate different?</p>
+<p><code>A: The world can be damaged faster than it can be fixed, this adds that to the underpinning of the system</code></p>
+<p>Q: Why is the crossover point neatly pegged at 21 degrees C?</p>
+<p><code>A: In 2023 the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts in the wake of.</code></p>
+<h1 id="data-point-as-a-constant"><a class="header" href="#data-point-as-a-constant">Data point as a constant <a name="datapoint"></a></a></h1>
+<p>We have now successfully emitted tokens based on a real world data point which has climate impact. This begins to bridge the gap between financial markets and climate science for people not directly interested in ReFi opportunities.</p>
+<p>If I'm just an oil barron degen, I can still invest in Endcoin and short the end of the world for unlimited gains, but this is now proveable, on chain, for the whole world to see.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="data-point-as-a-constant-1"><a class="header" href="#data-point-as-a-constant-1">Data point as a constant</a></h1>
+<p>We have now successfully emitted tokens based on a real world data point which has climate impact. This begins to bridge the gap between financial markets and climate science for people not directly interested in ReFi opportunities.</p>
+<p>If I'm just an oil barron degen, I can still invest in Endcoin and short the end of the world for unlimited gains, but this is now proveable, on chain, for the whole world to see.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="emission-distribution"><a class="header" href="#emission-distribution">Emission distribution</a></h1>
+<p>Currently, we emit all tokens directly to a pool. For mainnet launch, we will also implement swap functionality and distribution to people running a satellite receiver or a cell/map builder app. This allows the tokens to enter the market, and begin to flow. The swap functionality will allow people to swap their Endcoin for Gaiacoin and vice versa, but will not allow people to stake in the pool.</p>
+<p>This pool therefore gives us:
+$$ SST + market sentiment = Pulse on Climate $$</p>
+<p>This is a realtime value that can be displayed to show the current state of the planet and our opinion as a society towards it rolled into one data source.</p>
+<h2 id="emission-period"><a class="header" href="#emission-period">Emission period</a></h2>
+<p>Similar to index funds, we will update the SST value once a day. This gives us the following benefits which we think align with our mission:</p>
+<ol>
+<li>
+<p><strong>Simplicity and Transparency:</strong> The daily emission of tokens based on SST values introduces a straightforward and transparent mechanism for token generation. Users and investors can easily understand the criteria for token issuance, which is based on measurable, external environmental data. This transparency can build trust in the system.</p>
+</li>
+<li>
+<p><strong>Stabilization of Token Value:</strong> Emitting tokens once a day based on SST stabilizes the token's value by reducing its exposure to short-term speculative trading and market volatility. The value of the tokens becomes more closely tied to the actual changes in SST, rather than speculative market movements, which could make the tokens more attractive to long-term investors interested in environmental trends.</p>
+</li>
+<li>
+<p><strong>Cost Efficiency:</strong> A system that operates on a set schedule (once daily) can optimize its computational and operational resources, potentially lowering the costs associated with token emission. These savings can be passed on to the community or reinvested into the project, for example, by enhancing the system's data accuracy or contributing to ocean conservation efforts.</p>
+</li>
+<li>
+<p><strong>Reduced Market Impact:</strong> By aggregating transactions and emissions to a once-daily event, the potential market impact of large trades or emissions is minimized. This can help maintain a more stable trading environment for the tokens, benefiting all participants by reducing price manipulation and extreme volatility.</p>
+</li>
+<li>
+<p><strong>Ease of Investment Decision Making:</strong> Investors can make more informed decisions without the pressure to react to minute-by-minute changes. Knowing that token emissions are tied to daily SST values allows investors to research and understand the environmental factors that might influence the token's value, leading to more strategic, informed investment decisions.</p>
+</li>
+<li>
+<p><strong>Mitigates Timing Risk:</strong> The daily update mechanism mitigates risks associated with timing in the market. Investors focus on the longer-term trends in SST values and their implications for token emissions, rather than attempting to time the market for short-term gains.</p>
+</li>
+<li>
+<p><strong>Alignment with Environmental and Long-term Investment Strategies:</strong> By linking token emissions to SST values, the system naturally aligns with long-term environmental monitoring and conservation goals. It offers a novel way for investors to engage with climate-related issues, supporting a sustainable investment strategy that looks beyond immediate financial returns to consider broader environmental impacts.</p>
+</li>
+</ol>
+<p>For such a system to be effective, it's crucial to ensure the accuracy and integrity of the SST data used for token emission, incorporating multiple data sources and verification mechanisms to prevent manipulation and ensure reliability. Additionally, clear communication about how SST values translate into token emissions can further enhance transparency and trust in the system. Hopefully this whitepaper has shown that this is our ultimate goal.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="a-word-on-bubbledomes"><a class="header" href="#a-word-on-bubbledomes">A word on bubbledomes</a></h1>
+<p><img src="https://cdn.imgpaste.net/2024/04/05/SxVuxp.png" alt="Rad looking Endcoin Image" /></p>
+<p>Bubbledomes are our version of future real estate that we foresee humanity sheltering in when the world begins to end.
+Cities over the course of humanity have risen and fallen and entire civilisations have collapsed before, and usually there is an element of climate change that causes this.
+We talked about this internally more as a meme, but the reality when we actually decided to dig in a bit more is quite alarming, sinister, and so ludicrous that it becomes reality.</p>
+<p><a href="https://www.businessinsider.com/places-to-go-during-apocalypse-2011-5">Here's an article from Business Insider showing 12 locations to go if the world goes to hell</a>
+<a href="https://www.theguardian.com/news/2022/sep/04/super-rich-prepper-bunkers-apocalypse-survival-richest-rushkoff">Here's a link from the guardian talking about where Billionaires have began constructing bunkers</a>
+<a href="https://www.forbes.com/stories/billionaires/inside-billionaire-bunkers/">Here's a cool little slide deck from Forbes on the subject too</a></p>
+<p>Basically theres big business in creating end of the world doomsday bunkers. We want to reach more than just 50-100 billionaires driving daddy's lambo around the cool streets of LA. We want to reach all of humanity and build areas where art, technology and life can continue to prosper, because what the hell else will we do when we can't buy crypto punks anymore?</p>
+<p>Endcoin will eventually position itself to create a REIT in charge of buying land and developing bubbledomes for humanity's inevitable end should we not heed scientific warnings of climate change.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="finale"><a class="header" href="#finale">Finale</a></h1>
+
+                    </main>
+
+                    <nav class="nav-wrapper" aria-label="Page navigation">
+                        <!-- Mobile navigation buttons -->
+
+
+                        <div style="clear: both"></div>
+                    </nav>
+                </div>
+            </div>
+
+            <nav class="nav-wide-wrapper" aria-label="Page navigation">
+
+            </nav>
+
+        </div>
+
+
+
+
+        <script>
+            window.playground_copyable = true;
+        </script>
+
+
+        <script src="elasticlunr.min.js"></script>
+        <script src="mark.min.js"></script>
+        <script src="searcher.js"></script>
+
+        <script src="clipboard.min.js"></script>
+        <script src="highlight.js"></script>
+        <script src="book.js"></script>
+
+        <!-- Custom JS scripts -->
+
+        <script>
+        window.addEventListener('load', function() {
+            MathJax.Hub.Register.StartupHook('End', function() {
+                window.setTimeout(window.print, 100);
+            });
+        });
+        </script>
+
+    </div>
+    </body>
+</html>
