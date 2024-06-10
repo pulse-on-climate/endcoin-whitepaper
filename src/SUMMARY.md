@@ -11,13 +11,13 @@
 
 # Hardware
 
-- [Our Satellite Receiver Device](./hardware/satellite_receiver.md)
+- [Satellite Receiver Device](./hardware/satellite_receiver.md)
     - [Antenna](./hardware/antenna.md)
     - [Low Noise Amplifiers](./hardware/low_noise_amplifiers.md)
 
 # Infrastructure
 
-- [Satellite data collection ](./infrastructure/data_collection.md)
+- [Satellite data collection](./infrastructure/data_collection.md)
     - [Transmission](./infrastructure/satellite_data_transmission.md)
     - [Receiver Scheduler](./infrastructure/receiver_scheduler.md)
     - [Processing and Signing](./infrastructure/processing_and_signing.md)
