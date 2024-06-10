@@ -6,18 +6,11 @@ Our current working formula is:
 - meanTemperature (T) = current average sst temp on a daily basis
 
 #### Endcoin
-$$ endemission = Math.exp(endrate * (death - meanTemperature)) - 1 $$
-
-$$ E = exp(e* (d - T)) -1 $$
+\\[ E = exp(e* (d - T)) -1 \\]
 
 
 #### Gaiacoin
-$$ gaiaemission = Math.exp(gaiarate * (meanTemperature)) - 1 $$
-
-$$ G = exp(g * T) - 1     $$
-
- 	
-
+\\[ G = exp(g * T) - 1 \\]
 
 This graphs as two exponential functions, with Endcoin hitting exactly 0 when global average Sea Surface Temperature hits 35 degrees (Spoiler alert, we'll all be dead). When this happens, you see Gaiacoin spin wildly out of control, emitting around 293 billion into the economy each day temperatures are at 35 degrees... It'll still be the least of our worries though so DON'T PANIC. 
 

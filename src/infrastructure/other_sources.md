@@ -1,0 +1,4 @@
+# Other sources
+This still requires fleshed out, but there is a plethora of data products, sensor networks etc. that already exist in centralized entities. We believe in science, and as such treat the scientific community with respect, admiration and trust, but we also agree that any centralized system can be swayed by opinion and personal gain. We aim to be another voice in that crowd, to help bolster scientific endeavors and validate the hard work of so many brilliant minds in climate science and technology.
+
+We need to work out how these systems are currently verified, and how we fit into that stack. We believe there is space. 
