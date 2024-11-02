@@ -37,7 +37,7 @@
 
 # Bubble Domes
 
-17. [A word on bubbledomes](./bubbledomes/bubbledomes.md)
+17. [A word on bubbledomes](./Bubbledomes/bubbledomes.md)
 
 # Finale
 
