@@ -1,4 +1,4 @@
-![Rad looking Endcoin Image](https://gcdnb.pbrd.co/images/MOyZaxX4iiKc.png?o=1)
+
 # Table of contents
 1. [Introduction to Endcoin](#introduction)
 2. [A refresher on Sea Surface Temperature and its Importance to our climate.](#climate-change-refresh)
