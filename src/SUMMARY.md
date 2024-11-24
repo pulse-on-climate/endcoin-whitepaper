@@ -2,7 +2,7 @@
 
 # ENDCOIN
 
-- [Introduction](./introduction.md)
+- [Introduction](./Introduction.md)
 
 # Sea Surface Temperature data
 
