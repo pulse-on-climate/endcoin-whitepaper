@@ -19,7 +19,7 @@
 17. [A word on bubbledomes](#bubbledomes)
 18. [Summary](#summary)
 # Introduction to Endcoin <a name="introduction"></a>
-Endcoin starts by building A DePin Satellite receiver network to produce a reading of sea surface temperatures. This acts as a price feed to drive existing DeFi systems towards positive climate impact: A standard rate for the global economy that is owned by the Earth.
+Endcoin starts by building A DePin Satellite receiver network to produce a reading of sea surface temperatures. This acts as a price feed to drive existing DeFi systems towards positive climate impact: A standard rate for the global economy that is owned by the Earth. 
 
 ## Some more details: <a name="moredetails"></a>
 Endcoin is a multifaceted entity with a lot of really big problems that the team here are trying to solve. From climate indiference in politics, to underpinning the entire DeFi market, to creating satellite receivers and putting them in space, to buying land and building bubbledomes, we've got something for everyone so buckle up! 
