@@ -7,4 +7,5 @@ Endcoin is a multifaceted entity with a lot of really big problems that the team
 This whitepaper will hopefully provide a glimpse into our thought processes. We will follow the flow of data, from the Sea Surface temperature that underpins the whole system, through to new DeFi systems, and where we will all end up if the world continues to produce carbon at the current rate with zero tangible offset. 
 
 >"We should not underestimate the obstacles. Some are real, such as the need to develop new technologies and to forge international institutions that will promote cooperation. Some obstacles are unnecessary and man-made, such as those posed by the financial interests of polluters or the ludicrous arguments of some of our politicians." 
+
 **- William D. Nordhaus**
