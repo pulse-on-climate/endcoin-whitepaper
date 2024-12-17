@@ -1,6 +1,6 @@
 # Cell and Map Creation
 ## Working theory
-![Creation of a map](https://gcdnb.pbrd.co/images/q4VCCjPcqhe5.jpg?o=1)
+![Creation of a map](../img/map_building.jpg)
 Bringing this all together with the above image. 
 - We made a bunch of fragments earlier with our cool POC receiver. 
 - We stored all of them in a storage medium. 

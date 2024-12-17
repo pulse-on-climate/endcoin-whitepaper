@@ -18,21 +18,26 @@ How they compare:
 ![The graph](../img/emission_mapping.png)
 
 Endcoin vs Mean Temp: 
+
 ![Endcoin Mean Temp](../img/endcoin_mean_temps.png)
-Gaiacoin vs Mean Temp: 
+
+
+Gaiacoin vs Mean Temp:   
+
+
 ![Gaiacoin Mean Temp](../img/gaiacoin_mean_temp.png)
 
-## Some reasoning
+## FAQ:
 Q: Why are the endrate and gaiarate different? 
 
 
-`A: The world can be damaged faster than it can be fixed, this adds that to the underpinning of the system`
+`A: The world can be damaged faster than it can be fixed, this is introduced into the underpinning of the system`
 
 
 Q: Why is the crossover point neatly pegged at 21 degrees C? 
 
 
-`A: In 2023/2024 the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point, as this is when our new financial system starts.`
+`A: In 2023/2024 the average sea surface temp for the whole year is around 21 degrees, so we use this as the crossover point of the two logarithmic curves, as this is when our new financial system starts.`
 
 # Data point as a constant <a name="datapoint"></a>
 We have now successfully emitted tokens based on a real world data point which has climate impact. This begins to bridge the gap between financial markets and climate science for people not directly interested in ReFi opportunities. 
