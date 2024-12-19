@@ -32,6 +32,7 @@
 - [Switchboard](./onchain/switchboard_oracle.md)
 - [AMM and token emission](./onchain/amm_token_emission.md)
 - [Emission formula](./onchain/emission_formula.md)
+- [Introducing Market Sentiment](./onchain/introducing_market_sentiment.md)
 - [Data point as a constant](./onchain/datapoint.md)
 16. [Emission distribution](./onchain/emission_distribution.md)
 
